@@ -142,7 +142,7 @@ function HeroSlider() {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #2d6a4f 0%, transparent 70%)' }} />
           <div className="relative flex-1 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full pt-32 pb-12 flex">
-              <div className="max-w-4 xl min-w-4xl">
+              <div className="max-w-4xl min-w-4xl">
                 <div className="inline-flex items-center gap-2 border border-[#e4b312]/40 bg-[#e4b312]/10 text-[#e4b312] text-xs font-semibold px-4 py-2 rounded-full mb-7 tracking-wide">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e4b312] animate-pulse" />
                   Est. 2024 · Maharashtra Private Skills University · Lodga, Latur
@@ -449,6 +449,8 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden">
       <style>{`
         @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        @keyframes scrollUp { from { transform: translateY(0) } to { transform: translateY(-50%) } }
+        @keyframes scrollDown { from { transform: translateY(-50%) } to { transform: translateY(0) } }
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
@@ -491,65 +493,82 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT STRIP ── */}
-      <section
-        className="relative py-32 overflow-hidden"
-        style={{
-          backgroundImage: `url(${campusImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        {/* Dark overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(2, 4, 3, 0.78), rgba(13,40,24,0.68))' }} />
+      <section className="py-24 overflow-hidden" style={{ background: '#205944' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <div className="relative z-10 mx-auto px-4 sm:px-6 text-center">
-          {/* Label */}
-          <div className="bg-white p-5 max-w-7xl mx-auto mb-8 rounded-lg">  
-          <p className="reveal text-base font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: '#e4b312' }}>
-            About the University
-          </p>
+            {/* Left — content */}
+            <div className="reveal">
+              <p className="text-base font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: '#e4b312' }}>
+                About the University
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                A New Era of{' '}
+                <span style={{ color: '#e4b312' }}>Skill-Based Education</span>
+              </h2>
+              <p className="text-white/70 text-lg leading-relaxed mb-4">
+                Established under the <strong className="text-white">Maharashtra Private Skills Universities (Establishment and Regulation) Act, 2024</strong>, PPSU is Marathwada's answer to the growing demand for skilled, industry-ready professionals. Located at Lodga, Latur, we bring international-standard skill education to the region.
+              </p>
+              <p className="text-white/50 text-base leading-relaxed mb-10">
+                Our five specialized schools cover Sustainability & Green Energy, AI & Data Science, Business & Finance, Healthcare & Biotechnology, and Advanced Skill Education — each co-designed with industry to ensure graduates are job-ready from day one.
+              </p>
 
-          {/* Heading */}
-          <h2 className="reveal reveal-delay-1 text-3xl md:text-4xl lg:text-5xl font-bold  leading-tight mb-6">
-            A New Era of{' '}
-            <span style={{ color: '#e4b312' }}>Skill-Based Education</span>
-          </h2>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 font-bold text-sm px-8 py-3.5 rounded-full border-2 border-white/30 text-white hover:bg-white hover:text-[#0d2818] transition-all mb-12"
+              >
+                Our Story <ArrowRight size={16} />
+              </Link>
 
-          {/* Description */}
-          <p className="reveal reveal-delay-2 text-black/75 text-lg leading-relaxed mb-4 max-w-3xl mx-auto">
-            Established under the <strong >Maharashtra Private Skills Universities (Establishment and Regulation) Act, 2024</strong>, PPSU is Marathwada's answer to the growing demand for skilled, industry-ready professionals. Located at Lodga, Latur, we bring international-standard skill education to the region.
-          </p>
-          <p className="reveal reveal-delay-2 text-black/60 text-base leading-relaxed mb-10 max-w-3xl mx-auto">
-            Our five specialized schools cover Sustainability & Green Energy, AI & Data Science, Business & Finance, Healthcare & Biotechnology, and Advanced Skill Education — each co-designed with industry to ensure graduates are job-ready from day one.
-          </p>
-
-          {/* CTA */}
-          <div className="reveal reveal-delay-3 mb-16">
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 font-bold text-sm px-8 py-3.5 rounded-full border-2 border-black/40 text-black hover:bg-black hover:text-[#fff] transition-all"
-            >
-              Our Story <ArrowRight size={16} />
-            </Link>
-          </div>
-</div>
-          {/* 4 feature cards */}
-          <div className="reveal reveal-delay-3 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { Icon: Landmark,      title: 'Statutory University', desc: 'Govt. of Maharashtra approved under Private Skills Universities Act, 2024' },
-              { Icon: Handshake,    title: '50+ Partners',          desc: 'MoUs with leading companies for internship & placement' },
-              { Icon: Sun,          title: 'Green Campus',          desc: '500 kW solar plant powering 80% of campus energy needs' },
-              { Icon: FlaskConical, title: 'Research Driven',       desc: '4 dedicated research centers tackling real-world challenges' },
-            ].map(({ Icon, title, desc }) => (
-              <div key={title} className="p-5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/20 transition-all text-left">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: '#e4b312' }}>
-                  <Icon size={19} style={{ color: '#0d2818' }} />
-                </div>
-                <div className="font-semibold text-white text-sm mb-1.5">{title}</div>
-                <div className="text-base text-white/55 leading-relaxed">{desc}</div>
+              {/* 4 feature cards */}
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { Icon: Landmark,      title: 'Statutory University', desc: 'Govt. of Maharashtra approved under Private Skills Universities Act, 2024' },
+                  { Icon: Handshake,    title: '50+ Partners',          desc: 'MoUs with leading companies for internship & placement' },
+                  { Icon: Sun,          title: 'Green Campus',          desc: '500 kW solar plant powering 80% of campus energy needs' },
+                  { Icon: FlaskConical, title: 'Research Driven',       desc: '4 dedicated research centers tackling real-world challenges' },
+                ].map(({ Icon, title, desc }) => (
+                  <div key={title} className="p-4 rounded-2xl bg-[#f0f7f4] border border-[#d9ede4] hover:shadow-md transition-all">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: '#e4b312' }}>
+                      <Icon size={17} style={{ color: '#0d2818' }} />
+                    </div>
+                    <div className="font-semibold text-gray-900 text-sm mb-1">{title}</div>
+                    <div className="text-gray-500 text-sm leading-relaxed">{desc}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right — vertical scrolling image columns */}
+            <div className="reveal reveal-delay-2 relative h-[620px] overflow-hidden rounded-3xl">
+              {/* Top fade */}
+              <div className="absolute inset-x-0 top-0 h-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #205944, transparent)' }} />
+              {/* Bottom fade */}
+              <div className="absolute inset-x-0 bottom-0 h-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to top, #205944, transparent)' }} />
+
+              <div className="flex gap-4 h-full">
+                {/* Column A — scrolls up */}
+                <div className="flex-1 flex flex-col gap-4" style={{ animation: 'scrollUp 22s linear infinite' }}>
+                  {[campusImg, sustainabilityImg, aiDataImg, medicalImg, businessImg, skillsImg,
+                    campusImg, sustainabilityImg, aiDataImg, medicalImg, businessImg, skillsImg].map((img, i) => (
+                    <div key={i} className="flex-shrink-0 rounded-2xl overflow-hidden" style={{ height: '180px' }}>
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Column B — scrolls down */}
+                <div className="flex-1 flex flex-col gap-4" style={{ animation: 'scrollDown 22s linear infinite' }}>
+                  {[medicalImg, businessImg, skillsImg, campusImg, sustainabilityImg, aiDataImg,
+                    medicalImg, businessImg, skillsImg, campusImg, sustainabilityImg, aiDataImg].map((img, i) => (
+                    <div key={i} className="flex-shrink-0 rounded-2xl overflow-hidden" style={{ height: '180px' }}>
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
