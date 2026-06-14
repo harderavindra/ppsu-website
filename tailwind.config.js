@@ -1,0 +1,115 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        /* Brand primary — forest green */
+        primary: {
+          50:  '#f0f7f4',
+          100: '#d9ede4',
+          200: '#b3dbc9',
+          300: '#7dc0a6',
+          400: '#4aa07f',
+          500: '#2d8263',
+          600: '#1f6850',
+          700: '#1a5340',
+          800: '#1a4a2e',
+          900: '#133829',
+          950: '#0d2818',
+          DEFAULT: '#1a4a2e',
+          light:   '#2d6a4f',
+          dark:    '#0d2818',
+        },
+        /* Brand secondary — gold */
+        secondary: {
+          50:  '#fefce8',
+          100: '#fdf6c3',
+          200: '#fbea89',
+          300: '#f8d645',
+          400: '#f4c020',
+          500: '#e4b312',
+          600: '#c5900c',
+          700: '#9c6c0d',
+          800: '#7f5512',
+          900: '#6b4514',
+          950: '#3e2507',
+          DEFAULT: '#e4b312',
+          light:   '#f8d645',
+          dark:    '#c5900c',
+        },
+        /* Keep legacy aliases so existing classes still work */
+        forest: {
+          50:  '#f0f7f4',
+          100: '#d9ede4',
+          200: '#b3dbc9',
+          300: '#7dc0a6',
+          400: '#4aa07f',
+          500: '#2d8263',
+          600: '#1f6850',
+          700: '#1a5340',
+          800: '#164433',
+          900: '#133829',
+          950: '#091f17',
+          DEFAULT: '#1a4a2e',
+          light:   '#2d6a4f',
+          dark:    '#0d2818',
+        },
+        gold: {
+          50:  '#fefce8',
+          100: '#fdf6c3',
+          200: '#fbea89',
+          300: '#f8d645',
+          400: '#f4c020',
+          500: '#e4b312',
+          600: '#c5900c',
+          700: '#9c6c0d',
+          800: '#7f5512',
+          900: '#6b4514',
+          DEFAULT: '#e4b312',
+          light:   '#f8d645',
+          dark:    '#c5900c',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'slide-up': 'slideUp 0.7s ease-out forwards',
+        'slide-in-left': 'slideInLeft 0.7s ease-out forwards',
+        'slide-in-right': 'slideInRight 0.7s ease-out forwards',
+        'float': 'float 4s ease-in-out infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+        'spin-slow': 'spin 20s linear infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(40px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideInLeft: {
+          '0%': { transform: 'translateX(-40px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(40px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
