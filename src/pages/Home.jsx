@@ -17,6 +17,7 @@ import pashaPatelImg from '../assets/pashs-patel.avif';
 import parvejPatelImg from '../assets/parevej-patel.JPG';
 import sanjeevKarpeImg from '../assets/sanjeev-karpe.png';
 import heroImg from '../assets/ppsu-logo.png';
+import heroVideo from '../assets/video.mp4';
 const schoolImages = {
   'sustainability': sustainabilityImg,
   'ai-datascience': aiDataImg,
@@ -118,6 +119,117 @@ function LeadershipSlider() {
         </div>
       </div>
     </div>
+  );
+}
+
+/* ─── Hero Slider ─── */
+function HeroSlider() {
+  const [slide, setSlide] = useState(0);
+
+  return (
+    <section className="relative min-h-screen overflow-hidden">
+      {/* ── Slide 0 — Video hero ── */}
+      <div
+        className="absolute inset-0 transition-opacity duration-1000"
+        style={{ opacity: slide === 1 ? 1 : 0, zIndex: slide === 1 ? 1 : 0 }}
+      >
+        <div className="relative min-h-screen gradient-hero flex flex-col overflow-hidden">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }} />
+          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #e4b312 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #2d6a4f 0%, transparent 70%)' }} />
+          <div className="relative flex-1 flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full pt-32 pb-12 flex">
+              <div className="max-w-4 xl min-w-4xl">
+                <div className="inline-flex items-center gap-2 border border-[#e4b312]/40 bg-[#e4b312]/10 text-[#e4b312] text-xs font-semibold px-4 py-2 rounded-full mb-7 tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e4b312] animate-pulse" />
+                  Est. 2024 · Maharashtra Private Skills University · Lodga, Latur
+                </div>
+                <h1 className="font-bold leading-[1.05] mb-7">
+                  <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]">Where Future</span>
+                  <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]" style={{ color: '#e4b312' }}>Innovators &</span>
+                  <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]">Leaders Are Made</span>
+                </h1>
+                <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-3 max-w-2xl">
+                  Pasha Patel SkillTech University is Maharashtra's pioneering skill university — combining cutting-edge technology education with real-world industry experience in the heart of Marathwada.
+                </p>
+                <p className="text-[#e4b312]/80 text-sm font-medium mb-10 tracking-wide">
+                  कौशल्य · तंत्रज्ञान · शिक्षण · करिअर · शाश्वत भविष्य
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/admissions" className="inline-flex items-center justify-center gap-2.5 font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 shadow-xl" style={{ background: '#e4b312', color: '#0d2818' }}>
+                    <GraduationCap size={18} /> Apply for Admission 2025–26
+                  </Link>
+                  <Link to="/academics" className="inline-flex items-center justify-center gap-2 font-semibold text-sm px-8 py-4 rounded-full border-2 border-white/30 text-white hover:bg-white hover:text-[#1a4a2e] transition-all duration-200">
+                    Explore All Programmes <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
+              <div className="hidden lg:flex items-center justify-center flex-1">
+                <img src={heroImg} className="max-w-lg" alt="PPSU" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Slide 1 — Gradient hero ── */}
+      <div
+        className="absolute inset-0 transition-opacity duration-1000"
+        style={{ opacity: slide === 0 ? 1 : 0, zIndex: slide === 0 ? 1 : 0 }}
+      >
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src={heroVideo} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(13,40,24,0.70))' }} />
+        <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-24 pb-20">
+          <div className="inline-flex items-center gap-2 border border-[#e4b312]/40 bg-[#e4b312]/10 text-[#e4b312] text-xs font-semibold px-4 py-2 rounded-full mb-8 tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#e4b312] animate-pulse" />
+            Admissions Open 2025–26
+          </div>
+          <h1 className="font-bold leading-tight mb-6 max-w-6xl">
+            <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]">Shaping the
+            <span className=" text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]" style={{ color: '#e4b312' }}> Skill Leaders </span>
+            of Tomorrow</span>
+          </h1>
+          <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl">
+            Experience Maharashtra's most innovative skill university — where industry meets academia and every student is empowered to lead.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/admissions" className="inline-flex items-center justify-center gap-2.5 font-bold text-sm px-9 py-4 rounded-full hover:scale-105 transition-all shadow-xl" style={{ background: '#e4b312', color: '#0d2818' }}>
+              <GraduationCap size={18} /> Apply Now
+            </Link>
+            <Link to="/campus" className="inline-flex items-center justify-center gap-2 font-semibold text-sm px-9 py-4 rounded-full border-2 border-white/30 text-white hover:bg-white hover:text-[#1a4a2e] transition-all">
+              Explore Campus <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Controls ── */}
+      <div className="absolute bottom-8 left-0 right-0 z-20 flex flex-col items-center gap-3">
+        <div className="flex items-center gap-3">
+          <button onClick={() => setSlide(s => (s - 1 + 2) % 2)} className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-all">
+            <ArrowLeft size={14} />
+          </button>
+          {[0, 1].map(i => (
+            <button
+              key={i}
+              onClick={() => setSlide(i)}
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{ width: i === slide ? 36 : 14, background: i === slide ? '#e4b312' : 'rgba(255,255,255,0.4)' }}
+            />
+          ))}
+          <button onClick={() => setSlide(s => (s + 1) % 2)} className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-all">
+            <ArrowRight size={14} />
+          </button>
+        </div>
+        <div className="flex flex-col items-center gap-1 text-white/40 text-xs animate-bounce">
+          <span>Scroll</span>
+          <ChevronDown size={16} />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -347,79 +459,8 @@ export default function Home() {
         .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
       `}</style>
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen gradient-hero flex flex-col overflow-hidden">
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }} />
-
-        {/* Decorative blobs */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #e4b312 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #2d6a4f 0%, transparent 70%)' }} />
-
-        <div className="relative flex-1 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full pt-32 pb-12 flex">
-            <div className="max-w-4xl min-w-4xl">
-              {/* Badge */}
-              <div className="reveal inline-flex items-center gap-2 border border-[#e4b312]/40 bg-[#e4b312]/10 text-[#e4b312] text-xs font-semibold px-4 py-2 rounded-full mb-7 tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#e4b312] animate-pulse" />
-                Est. 2024 · Maharashtra Private Skills University · Lodga, Latur
-              </div>
-
-              {/* Title */}
-              <h1 className="reveal reveal-delay-1 font-bold leading-[1.05] mb-7">
-                <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]">Where Future</span>
-                <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]" style={{ color: '#e4b312' }}>Innovators &</span>
-                <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[72px]">Leaders Are Made</span>
-              </h1>
-
-              <p className="reveal reveal-delay-2 text-white/70 text-base sm:text-lg leading-relaxed mb-3 max-w-2xl">
-                Pasha Patel SkillTech University is Maharashtra's pioneering skill university — combining cutting-edge technology education with real-world industry experience in the heart of Marathwada.
-              </p>
-              <p className="reveal reveal-delay-2 text-[#e4b312]/80 text-sm font-medium mb-10 tracking-wide">
-                कौशल्य · तंत्रज्ञान · शिक्षण · करिअर · शाश्वत भविष्य
-              </p>
-
-              <div className="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/admissions"
-                  className="inline-flex items-center justify-center gap-2.5 font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 shadow-xl hover:shadow-2xl"
-                  style={{ background: '#e4b312', color: '#0d2818' }}
-                >
-                  <GraduationCap size={18} />
-                  Apply for Admission 2025–26
-                </Link>
-                <Link
-                  to="/academics"
-                  className="inline-flex items-center justify-center gap-2 font-semibold text-sm px-8 py-4 rounded-full border-2 border-white/30 text-white hover:bg-white hover:text-[#1a4a2e] transition-all duration-200"
-                >
-                  Explore All Programmes
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-
-              {/* Mini stats strip */}
-
-            </div>
-            <div className="hidden lg:flex items-center justify-center flex-1">
-              <img
-                src={heroImg}
-                className='max-w-lg'
-                alt="Pasha Patel" />
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll cue */}
-        <div className="relative pb-8 flex justify-center">
-          <div className="flex flex-col items-center gap-2 text-white/40 text-base animate-bounce">
-            <span>Scroll</span>
-            <ChevronDown size={18} />
-          </div>
-        </div>
-      </section>
+      {/* ── HERO SLIDER ── */}
+      <HeroSlider />
 
       {/* ── MARQUEE ── */}
       <MarqueeStrip />
